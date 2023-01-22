@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+<body>
+    <!-- ====== Navbar Section Start -->
+<header
+x-data="
+      {
+        navbarOpen: false
+      }
+    "
+class="flex w-full items-center bg-body-color"
+>
+<div class="container mx-auto">
+  <div class="relative -mx-4 flex items-center justify-between">
+    <div class="w-60 max-w-full px-4">
+      
+    </div>
+    <div class="flex w-full items-center justify-between px-4">
+      <div>
+        <button
+          @click="navbarOpen = !navbarOpen"
+          :class="navbarOpen && 'navbarTogglerActive' "
+          id="navbarToggler"
+          class="ring-primary absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] focus:ring-2 lg:hidden"
+        >
+          <span
+            class="bg-body-color relative my-[6px] block h-[2px] w-[30px]"
+          ></span>
+          <span
+            class="bg-body-color relative my-[6px] block h-[2px] w-[30px]"
+          ></span>
+          <span
+            class="bg-body-color relative my-[6px] block h-[2px] w-[30px]"
+          ></span>
+        </button>
+        <nav
+          :class="!navbarOpen && 'hidden' "
+          id="navbarCollapse"
+          class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none"
+        >
+          <ul class="block lg:flex ">
+            <li>
+              <a
+                href="{% url "home" %}"
+                class="text-dark hover:text-primary flex py-2 text-base font-medium lg:ml-12 lg:inline-flex"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="{% url 'home' %}"
+                class="text-dark hover:text-primary flex py-2 text-base font-medium lg:ml-12 lg:inline-flex"
+              >
+                Chat
+              </a>
+            </li>
+            {% comment %} <li>
+              <a
+                href="javascript:void(0)"
+                class="text-dark hover:text-primary flex py-2 text-base font-medium lg:ml-12 lg:inline-flex"
+              >
+                Features
+              </a>
+            </li> {% endcomment %}
+          </ul>
+        </nav>
+      </div>
+      <div class="hidden justify-end pr-16 sm:flex lg:pr-0">
+        <a
+          href="{% url 'join' %}"
+          class="text-dark hover:text-primary py-3 px-7 text-base font-medium rounded-md  bg-blue-500 text-white hover:bg-opacity-30 hover:text-blue-500"
+        >
+          Join
+        </a>
+        {% comment %} <a
+          href="javascript:void(0)"
+          class="bg-primary rounded-lg py-3 px-7 text-base font-medium text-blue-500 hover:bg-opacity-90"
+        >
+          Sign Up
+        </a> {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+<!-- ====== Navbar Section End -->
+{% block content %}
+  
+{% endblock content %}
+  
+</body>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.js" integrity="sha512-6m6AtgVSg7JzStQBuIpqoVuGPVSAK5Sp/ti6ySu6AjRDa1pX8mIl1TwP9QmKXU+4Mhq/73SzOk6mbNvyj9MPzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.min.js" integrity="sha512-Atu8sttM7mNNMon28+GHxLdz4Xo2APm1WVHwiLW9gW4bmHpHc/E2IbXrj98SmefTmbqbUTOztKl5PDPiu0LD/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js" integrity="sha512-nIwdJlD5/vHj23CbO2iHCXtsqzdTTx3e3uAmpTm4x2Y8xCIFyWu4cSIV8GaGe2UNVq86/1h9EgUZy7tn243qdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</html>

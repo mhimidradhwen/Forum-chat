@@ -1,0 +1,87 @@
+{% extends "myapp/base.html" %}
+
+
+{% block content %}
+<!-- ====== Forms Section Start -->
+<div class="container mx-auto">
+    <div class="w-full px-4">
+      <div
+        class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-16 px-10 text-center sm:px-12 md:px-[60px]"
+      >
+        <form method="POST">
+            {% csrf_token %}
+            <div class="justify-center flex pr-16 sm:flex lg:pr-0 flex-wrap text-center  mb-3 mt-3 rounded-md border-2 border-blue-500 width-full">
+              <div class=" bordder-[#E9EDF4] w-100% rounded-md border-0 bg-[#FCFDFE] py-3 px-5 text-right text-blue-500 placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none">
+                <span class="material-icons-sharp">
+                  person
+                  </span>                  </div>
+
+              <input 
+                type="text"
+                name="sender_name"
+                placeholder="Sender"
+                class=" bordder-[#E9EDF4] w-100% rounded-md border-0 bg-[#FCFDFE] py-3 px-5 text-center text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+              />
+
+            </div>
+<hr>
+
+            <div class="justify-end pr-16 sm:flex lg:pr-0 flex-wrap text-center mb-3 mt-3 rounded-md border-2 border-blue-500 bg-white">
+
+          
+            <input 
+              type="text"
+              name="content"
+              placeholder="ekteb message "
+              class=" bordder-[#E9EDF4] w-4/6  border-0 rounded-md  py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+              />
+                
+            <button
+              type="submit"
+              class=" bordder-primary w-2/6 cursor-pointer rounded-md border-blue-500 bg-primary py-3 px-5 text-right text-blue-500 transition hover:text-blue-700 "
+            > 
+            <i class="material-icons">send</i>              
+          </button>
+        </div>
+
+        </form>
+
+        <div class="container relative mx-auto flex-row">
+
+        {% for message in messages %}
+        <div class="bg-[{{message.sender.message_color}}] bg-opacity-40 justify-end pr-16 sm:flex lg:pr-0 flex-wrap text-center mb-3 mt-3 rounded-md ">
+            <input 
+              type="text"
+              disabled
+              value="{{message.content}}"
+              class="  bordder-[#E9EDF4] w-3/6 rounded-md border-0  py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+            />
+       
+            <p
+              value="{{message.sender.name}} "
+              class=" w-2/6  rounded-md  py-3 px-5 text-gray-500 transition hover:bg-opacity-90 "
+            >
+            {{message.sender.name}}
+            </p>
+
+            <a
+            href ="{% url 'delete' message.id %}"
+            class="w-1/6  rounded-md  py-3 px-5 text-base text-gray-500  transition hover:bg-opacity-90 "
+            >
+            <i class="material-icons-sharp">
+              clear
+            </i>
+          </a>
+
+           
+        </div>
+        {% endfor %}
+    </div>
+
+        
+</div>
+</div>
+
+<!-- ====== Forms Section End -->
+
+{% endblock content %}

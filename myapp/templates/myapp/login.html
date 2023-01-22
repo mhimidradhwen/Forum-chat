@@ -1,0 +1,48 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+  <!-- ====== Forms Section Start -->
+  <div class="container mx-auto">
+    <div class="w-full px-4">
+      <div class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-16 px-10 text-lef sm:px-12 md:px-[60px]">
+
+        <form method="POST" class="bg-white rounded-md p-6">
+          {% csrf_token %}
+          <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="username">
+              Username
+            </label>
+            <input 
+              class="bg-gray-200 rounded-md p-2 focus:outline-none focus:bg-white focus:shadow-outline-blue-500"
+              type="text" 
+              id="username" 
+              name="username" 
+              placeholder="Enter your username"
+            >
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="color-picker">
+              Favorite Color
+            </label>
+            <input 
+              class="bg-gray-200 rounded-md p-2 focus:outline-none focus:bg-white focus:shadow-outline-blue-500"
+              type="color" 
+              id="color-picker" 
+              name="color" 
+            >
+          </div>
+          <button 
+            class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md" 
+            type="submit"
+          >
+            Join
+          </button>
+        </form>
+        
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Forms Section End -->
+{% endblock %}
