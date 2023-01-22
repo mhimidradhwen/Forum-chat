@@ -57,6 +57,8 @@ We welcome contributions from the community. If you're interested in contributin
 
 - Django documentation
 - Tailwind documentation
+- [Django-Basics](https://github.com/mhimidradhwen/crash-courses/blob/master/Django-Basics.md)
+
 
 ## Note
 Please note that this is a basic project for demonstration purpose, and it may have security vulnerabilities. Use it at your own risk.
